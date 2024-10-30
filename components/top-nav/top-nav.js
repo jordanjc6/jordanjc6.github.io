@@ -9,10 +9,12 @@ class TopNav extends HTMLElement {
 		// Always call super first in constructor
 		super();
 
-		console.log('Constructed', this);
+		// Attach a shadow DOM (to encapsulate, styles would need to be inside innerhtml between style tags)
+        // this.attachShadow({ mode: 'open' });
 
+		// this.shadowRoot.innerHTML
         this.innerHTML = `
-        <section class="top-nav">
+		<section class="top-nav">
             <div>
 				Logo Here
             </div>
@@ -21,12 +23,19 @@ class TopNav extends HTMLElement {
             <div class='menu-button'></div>
             </label>
             <ul class="menu">
-                <li>Home</li>
+                <li class="jor">Home</li>
                 <li>Projects</li>
                 <li>Contact</li>
             </ul>
         </section>`;
 
+		// Add a click event listener
+		// this.shadowRoot.querySelector
+        this.querySelector('.jor').addEventListener('click', () => {
+            console.log('Clicked!');
+        });
+
+		console.log('Constructed', this);
 	}
 
 	/**
