@@ -12,28 +12,36 @@ class TopNav extends HTMLElement {
 		// Attach a shadow DOM (to encapsulate, styles would need to be inside innerhtml between style tags)
         // this.attachShadow({ mode: 'open' });
 
+		// Use the attribute value to update innerHTML
+        const text = this.getAttribute('test-attr') || 'Logo Here';  // Fallback to default if not provided
 		// this.shadowRoot.innerHTML
         this.innerHTML = `
 		<section class="top-nav">
             <div>
-				Logo Here
+				${text}
             </div>
             <input id="menu-toggle" type="checkbox" />
             <label class='menu-button-container' for="menu-toggle">
             <div class='menu-button'></div>
             </label>
             <ul class="menu">
-                <li class="jor">Home</li>
-                <li>Projects</li>
-                <li>Contact</li>
+                <li class="nav-item">Home</li>
+                <li class="nav-item">Projects</li>
+                <li class="nav-item">Contact</li>
             </ul>
         </section>`;
 
 		// Add a click event listener
 		// this.shadowRoot.querySelector
-        this.querySelector('.jor').addEventListener('click', () => {
-            console.log('Clicked!');
-        });
+		let navItems = document.querySelectorAll('.nav-item');
+		for (let i = 0; i < navItems.length; i++) {
+			navItems[i].addEventListener('click', () => {
+				console.log(`Clicked ${navItems[i].textContent}!`);
+				
+				// route to page
+				//
+			});
+		}
 
 		console.log('Constructed', this);
 	}
@@ -51,6 +59,13 @@ class TopNav extends HTMLElement {
 	disconnectedCallback () {
 		console.log('disconnected', this);
 	}
+
+	 /**
+     * Observed attributes
+     */
+	 static get observedAttributes() {
+        return ['test-attr'];  // Add any other attributes you want to observe here
+    }
 
 }
 
