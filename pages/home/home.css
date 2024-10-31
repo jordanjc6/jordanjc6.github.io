@@ -1,0 +1,22 @@
+.home-container {
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+.greeting {
+    margin: 15px 0 15px 0;
+}
+
+.bio {
+    /* color: white; */
+    margin-bottom: 10px;
+}
+
+.display-pic {
+    /* border: 12px solid white;
+    border-top: 30px solid white;
+    border-bottom: 70px solid white; */
+    margin: 20px 0 25px 0;
+}

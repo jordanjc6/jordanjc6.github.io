@@ -84,13 +84,13 @@ async function renderPage(route) {
 	
 	switch (route) {
 		case 'home':
-			filePath = 'pages/home.html';
+			filePath = 'pages/home/home.html';
 			break;
 		case 'projects':
-			filePath = 'pages/projects.html';
+			filePath = 'pages/projects/projects.html';
 			break;
 		case 'contact':
-			filePath = 'pages/contact.html';
+			filePath = 'pages/contact/contact.html';
 			break;
 		default:
 			app.innerHTML = 'Page not found!';
