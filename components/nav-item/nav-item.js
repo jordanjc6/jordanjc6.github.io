@@ -9,10 +9,7 @@ class NavItem extends HTMLElement {
 		// Always call super first in constructor
 		super();
 
-        // Attach a shadow DOM
-        this.attachShadow({ mode: 'open' });
-
-        this.innerHTML = `<li><a href="#">Home</a></li>`;
+        this.innerHTML = `<li>nav-item</li>`;
 
 		console.log('Constructed', this);
 	}

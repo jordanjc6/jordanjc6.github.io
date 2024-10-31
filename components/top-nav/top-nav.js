@@ -28,6 +28,7 @@ class TopNav extends HTMLElement {
                 <li class="nav-item">Home</li>
                 <li class="nav-item">Projects</li>
                 <li class="nav-item">Contact</li>
+				<!-- <nav-item></nav-item> -->
             </ul>
         </section>`;
 
