@@ -36,10 +36,11 @@ class TopNav extends HTMLElement {
 		let navItems = document.querySelectorAll('.nav-item');
 		for (let i = 0; i < navItems.length; i++) {
 			navItems[i].addEventListener('click', () => {
-				console.log(`Clicked ${navItems[i].textContent}!`);
+				console.log(`Clicked ${navItems[i].textContent}`);
 				
 				// route to page
-				//
+				const route = navItems[i].textContent.toLowerCase();  // Extract route based on text
+				renderPage(route);
 			});
 		}
 
@@ -51,6 +52,7 @@ class TopNav extends HTMLElement {
 	 */
 	connectedCallback () {
 		console.log('connected!', this);
+		renderPage('home');
 	}
 
 	/**
@@ -72,4 +74,36 @@ class TopNav extends HTMLElement {
 // Define the new web component
 if ('customElements' in window) {
 	customElements.define('top-nav', TopNav);
+}
+
+// Function to render content based on the route
+async function renderPage(route) {
+	const app = document.querySelector('#app');
+	let filePath;
+	
+	switch (route) {
+		case 'home':
+			filePath = 'pages/home.html';
+			break;
+		case 'projects':
+			filePath = 'pages/projects.html';
+			break;
+		case 'contact':
+			filePath = 'pages/contact.html';
+			break;
+		default:
+			app.innerHTML = 'Page not found!';
+			return;
+	}
+
+	// Fetch and load the HTML file
+	try {
+		const response = await fetch(filePath);
+		if (!response.ok) throw new Error('Network response was not ok');
+		const htmlContent = await response.text();
+		app.innerHTML = htmlContent;
+	} catch (error) {
+		console.error('Error loading page:', error);
+		app.innerHTML = 'Error loading page content!';
+	}
 }
