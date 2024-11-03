@@ -53,7 +53,7 @@ class TopNav extends HTMLElement {
 	 */
 	connectedCallback () {
 		// console.log('connected!', this);
-		renderPage('contact');
+		renderPage('home');
 		window.addEventListener("click", onClickOutsideNav);
 	}
 
