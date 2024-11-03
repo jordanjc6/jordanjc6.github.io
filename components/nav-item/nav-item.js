@@ -11,21 +11,21 @@ class NavItem extends HTMLElement {
 
         this.innerHTML = `<li>nav-item</li>`;
 
-		console.log('Constructed', this);
+		// console.log('Constructed', this);
 	}
 
 	/**
 	 * Runs each time the element is appended to or moved in the DOM
 	 */
 	connectedCallback () {
-		console.log('connected!', this);
+		// console.log('connected!', this);
 	}
 
 	/**
 	 * Runs when the element is removed from the DOM
 	 */
 	disconnectedCallback () {
-		console.log('disconnected', this);
+		// console.log('disconnected', this);
 	}
 
 }

@@ -37,7 +37,7 @@ class TopNav extends HTMLElement {
 		let navItems = document.querySelectorAll('.nav-item');
 		for (let i = 0; i < navItems.length; i++) {
 			navItems[i].addEventListener('click', () => {
-				console.log(`Clicked ${navItems[i].textContent}`);
+				// console.log(`Clicked ${navItems[i].textContent}`);
 				
 				// route to page
 				const route = navItems[i].textContent.toLowerCase();  // Extract route based on text
@@ -45,15 +45,15 @@ class TopNav extends HTMLElement {
 			});
 		}
 
-		console.log('Constructed', this);
+		// console.log('Constructed', this);
 	}
 
 	/**
 	 * Runs each time the element is appended to or moved in the DOM
 	 */
 	connectedCallback () {
-		console.log('connected!', this);
-		renderPage('home');
+		// console.log('connected!', this);
+		renderPage('contact');
 		window.addEventListener("click", onClickOutsideNav);
 	}
 
@@ -61,7 +61,7 @@ class TopNav extends HTMLElement {
 	 * Runs when the element is removed from the DOM
 	 */
 	disconnectedCallback () {
-		console.log('disconnected', this);
+		// console.log('disconnected', this);
 		window.removeEventListener("click", onClickOutsideNav);
 	}
 
@@ -86,7 +86,7 @@ function onClickOutsideNav(e) {
 }
 
 function closeNav() {
-	console.log('nav closed');
+	// console.log('nav closed');
 	const toggle = document.querySelector('#menu-toggle');
 	toggle.checked = false;
 }
