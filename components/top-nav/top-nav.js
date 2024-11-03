@@ -16,18 +16,18 @@ class TopNav extends HTMLElement {
         const text = this.getAttribute('test-attr') || 'Logo Here';  // Fallback to default if not provided
 		// this.shadowRoot.innerHTML
         this.innerHTML = `
-		<section class="top-nav">
-            <div>
+		<section class="nav top-nav">
+            <div class="nav logo">
 				${text}
             </div>
-            <input id="menu-toggle" type="checkbox" />
-            <label class='menu-button-container' for="menu-toggle">
-            <div class='menu-button'></div>
+            <input id="menu-toggle" class="nav" type="checkbox" />
+            <label class="nav menu-button-container" for="menu-toggle">
+            <div class="nav menu-button"></div>
             </label>
-            <ul class="menu">
-                <li class="nav-item">Home</li>
-                <li class="nav-item">Projects</li>
-                <li class="nav-item">Contact</li>
+            <ul class="nav menu">
+                <li class="nav nav-item">Home</li>
+                <li class="nav nav-item">Projects</li>
+                <li class="nav nav-item">Contact</li>
 				<!-- <nav-item></nav-item> -->
             </ul>
         </section>`;
@@ -54,6 +54,7 @@ class TopNav extends HTMLElement {
 	connectedCallback () {
 		console.log('connected!', this);
 		renderPage('home');
+		window.addEventListener("click", onClickOutsideNav);
 	}
 
 	/**
@@ -61,6 +62,7 @@ class TopNav extends HTMLElement {
 	 */
 	disconnectedCallback () {
 		console.log('disconnected', this);
+		window.removeEventListener("click", onClickOutsideNav);
 	}
 
 	 /**
@@ -77,8 +79,21 @@ if ('customElements' in window) {
 	customElements.define('top-nav', TopNav);
 }
 
+function onClickOutsideNav(e) {
+	if (!e.target.className.includes('nav')) {
+		closeNav();
+	}
+}
+
+function closeNav() {
+	console.log('nav closed');
+	const toggle = document.querySelector('#menu-toggle');
+	toggle.checked = false;
+}
+
 // Function to render content based on the route
 async function renderPage(route) {
+	closeNav();
 	const app = document.querySelector('#app');
 	let filePath;
 	
