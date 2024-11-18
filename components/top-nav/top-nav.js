@@ -18,7 +18,7 @@ class TopNav extends HTMLElement {
         this.innerHTML = `
 		<section class="nav top-nav">
             <div class="nav logo">
-				${text}
+				<!-- ${text} -->
             </div>
             <input id="menu-toggle" class="nav" type="checkbox" />
             <label class="nav menu-button-container" for="menu-toggle">
