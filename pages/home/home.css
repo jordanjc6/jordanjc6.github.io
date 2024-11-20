@@ -19,4 +19,28 @@
     border-top: 30px solid white;
     border-bottom: 70px solid white; */
     margin: 20px 0 25px 0;
+    width: 100%;
+}
+
+/* CSS styles for viewports 1000px and up (tallest iphone viewport is < 1000px) */  
+@media (min-width: 1000px) {
+    .home-content {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 10%;
+    }
+
+    .home-verbiage {
+        display: inline-block;
+        width: 40%;
+    }
+
+    .home-greeting {
+        margin: 20px 0 15px 0;
+    }
+
+    .display-pic {
+        width: 40%;
+    }
 }
