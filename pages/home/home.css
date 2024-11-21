@@ -22,8 +22,8 @@
     width: 100%;
 }
 
-/* CSS styles for viewports 1000px and up (tallest iphone viewport is < 1000px) */  
-@media (min-width: 1000px) {
+/* CSS styles for viewports 932px and up (largest iphone viewport height is 932px) */  
+@media (min-width: 932px) {
     .home-content {
         display: flex;
         align-items: flex-start;

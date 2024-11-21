@@ -26,6 +26,10 @@
     margin: 8px 0 8px 0;
 }
 
+.pic-castroCookbook {
+    width: 100%;
+}
+
 .hidden {
     display: none;
 }
@@ -36,7 +40,7 @@
 }
 
 .slide-dot {
-    /* cursor: pointer; */
+    cursor: pointer;
     height: 15px;
     width: 15px;
     margin: 0 2px;
@@ -48,4 +52,27 @@
 
 .dot-active {
     background-color: #717171;
+}
+
+/* CSS styles for viewports 932px and up (largest iphone viewport height is 932px) */  
+@media (min-width: 932px) {
+    .project {
+        margin: 55px 0 55px 0;
+    }
+
+    .project-portrait {
+        display: flex;
+        align-items: flex-start;
+        gap: 20%;
+    }
+
+    .project-verbiage {
+        display: inline-block;
+        width: 40%;
+    }
+
+    .project-slides {
+        display: inline-block;
+        width: 30%;
+    }
 }
